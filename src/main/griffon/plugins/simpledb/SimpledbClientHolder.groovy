@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2011-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package griffon.plugins.simpledb
 
 import com.amazonaws.services.simpledb.AmazonSimpleDB
@@ -29,7 +30,7 @@ import org.slf4j.LoggerFactory
  * @author Andres Almiray
  */
 @Singleton
-class SimpledbClientHolder {
+class SimpledbClientHolder implements SimpledbProvider {
     private static final Logger LOG = LoggerFactory.getLogger(SimpledbClientHolder)
     private static final Object[] LOCK = new Object[0]
     private final Map<String, AmazonSimpleDB> clients = [:]

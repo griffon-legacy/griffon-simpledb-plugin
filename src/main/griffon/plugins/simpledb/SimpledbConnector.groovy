@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 the original author or authors.
+ * Copyright 2011-2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package griffon.plugins.simpledb
 
 import com.amazonaws.ClientConfiguration
@@ -32,25 +33,10 @@ import org.slf4j.LoggerFactory
  * @author Andres Almiray
  */
 @Singleton
-final class SimpledbConnector {
+final class SimpledbConnector implements SimpledbProvider {
     private bootstrap
 
     private static final Logger LOG = LoggerFactory.getLogger(SimpledbConnector)
-
-    static void enhance(MetaClass mc) {
-        mc.withSimpledb = {Closure closure ->
-            SimpledbClientHolder.instance.withSimpledb('default', closure)
-        }
-        mc.withSimpledb << {String clientName, Closure closure ->
-            SimpledbClientHolder.instance.withSimpledb(clientName, closure)
-        }
-        mc.withSimpledb << {CallableWithArgs callable ->
-            SimpledbClientHolder.instance.withSimpledb('default', callable)
-        }
-        mc.withSimpledb << {String clientName, CallableWithArgs callable ->
-            SimpledbClientHolder.instance.withSimpledb(clientName, callable)
-        }
-    }
 
     Object withSimpledb(String clientName = 'default', Closure closure) {
         SimpledbClientHolder.instance.withSimpledb(clientName, closure)
