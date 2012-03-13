@@ -48,7 +48,7 @@ class SimpledbGriffonPlugin {
     ]
     String title = 'Simpledb support'
     String description = '''
-The Simpledb plugin enables lightweight access to [Simpledb][1] databases.
+The Simpledb plugin enables lightweight access to [Amazon's Simpledb][1] databases.
 This plugin does NOT provide domain classes nor dynamic finders like GORM does.
 
 Usage
@@ -108,8 +108,8 @@ can be done in this way
 	databases {
 	    internal {
             credentials {
-                accessKey = 'yourUsername'
-                secretKey = 'yourPassword'
+                accessKey = '*****'
+                secretKey = '*****'
             }
 		}
 	}
@@ -117,9 +117,14 @@ can be done in this way
 This block can be used inside the `environments()` block in the same way as the
 default client block is used.
 
+### Credentials
+
+Access and secret keys can be obtained from [https://aws-portal.amazon.com/gp/aws/securityCredentials][2] after you have successfully
+signed in for usage of the Simpledb services provided by Amazon.
+
 ### Example
 
-A trivial sample application can be found at [https://github.com/aalmiray/griffon_sample_apps/tree/master/persistence/simpledb][2]
+A trivial sample application can be found at [https://github.com/aalmiray/griffon_sample_apps/tree/master/persistence/simpledb][3]
 
 Testing
 -------
@@ -153,7 +158,8 @@ This implementation may be used in the following way
     }
 
 
-[1]: http://www.simpledb.org
-[2]: https://github.com/aalmiray/griffon_sample_apps/tree/master/persistence/simpledb
+[1]: http://aws.amazon.com/simpledb/
+[2]: https://aws-portal.amazon.com/gp/aws/securityCredentials
+[3]: https://github.com/aalmiray/griffon_sample_apps/tree/master/persistence/simpledb
 '''
 }

@@ -2,17 +2,15 @@ griffon.project.dependency.resolution = {
     inherits "global"
     log "warn"
     repositories {
-        griffonHome()
-        mavenCentral()    
-        mavenRepo 'http://repository.sonatype.org/content/groups/public'    
-        // pluginDirPath is only available when installed
-        String basePath = pluginDirPath? "${pluginDirPath}/" : ''
-        flatDir name: "simpledbLibDir", dirs: ["${basePath}lib"]
+        griffonHome() 
+        mavenCentral()
+        mavenRepo 'http://repository.sonatype.org/content/groups/public'
     }
     dependencies {
-        compile('com.amazonaws:aws-java-sdk:1.2.10',
-                'commons-codec:commons-codec:1.3',
-                'org.apache.httpcomponents:httpclient:4.1.2') {
+        compile('com.amazonaws:aws-java-sdk:1.3.4',
+                'org.apache.httpcomponents:httpcore:4.1.3',
+                'org.apache.httpcomponents:httpcomponents-client:4.1.3',
+                'commons-codec:commons-codec:1.6') {
             excludes 'commons-logging'        
         }
     }

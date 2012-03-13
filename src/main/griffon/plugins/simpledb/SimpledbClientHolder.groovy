@@ -52,13 +52,13 @@ class SimpledbClientHolder implements SimpledbProvider {
 
     Object withSimpledb(String clientName = 'default', Closure closure) {
         AmazonSimpleDB client = fetchClient(clientName)
-        if(LOG.debugEnabled) LOG.debug("Executing statement on client '$clientName'")
+        if(LOG.debugEnabled) LOG.debug("Executing statements on client '$clientName'")
         return closure(clientName, client)
     }
 
     public <T> T withSimpledb(String clientName = 'default', CallableWithArgs<T> callable) {
         AmazonSimpleDB client = fetchClient(clientName)
-        if(LOG.debugEnabled) LOG.debug("Executing statement on client '$clientName'")
+        if(LOG.debugEnabled) LOG.debug("Executing statements on client '$clientName'")
         callable.args = [clientName, client] as Object[]
         return callable.call()
     }

@@ -28,7 +28,7 @@ final class SimpledbEnhancer {
 
     private SimpledbEnhancer() {}
     
-    static void enhance(MetaClass mc, SimpledbProvider provider = SimpledbServerHolder.instance) {
+    static void enhance(MetaClass mc, SimpledbProvider provider = SimpledbClientHolder.instance) {
         if(LOG.debugEnabled) LOG.debug("Enhancing $mc with $provider")
         mc.withSimpledb = {Closure closure ->
             provider.withSimpledb('default', closure)
