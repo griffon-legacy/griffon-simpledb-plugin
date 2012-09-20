@@ -47,7 +47,7 @@ class SimpledbClientHolder implements SimpledbProvider {
 
     void setClient(String clientName = 'default', AmazonSimpleDB client) {
         if(isBlank(clientName)) clientName = 'default'
-        storeClient(clientName, client)       
+        storeClient(clientName, client)
     }
 
     Object withSimpledb(String clientName = 'default', Closure closure) {
@@ -70,7 +70,7 @@ class SimpledbClientHolder implements SimpledbProvider {
     
     void disconnectClient(String clientName) {
         if(isBlank(clientName)) clientName = 'default'
-        storeClient(clientName, null)        
+        storeClient(clientName, null)
     }
 
     private AmazonSimpleDB fetchClient(String clientName) {

@@ -37,7 +37,7 @@ class SimpledbGriffonAddon {
         }
     }
 
-    def events = [
+    Map events = [
         ShutdownStart: { app ->
             ConfigObject config = SimpledbConnector.instance.createConfig(app)
             SimpledbConnector.instance.disconnect(app, config)
